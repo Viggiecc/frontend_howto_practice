@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<style type="text/css">
+		.slide {
+			display: none;
+		}
+	</style>
+</head>
+<body>
+	<div id="slideshow-container">
+		
+
+	</div>
+	<script type="text/javascript">
+		var imgs = [
+			{id: 1, src: "./imgs/img_mountains_wide.jpg"},
+			{id: 2, src: "./imgs/img_nature_wide.jpg"},
+			{id: 3, src: "./imgs/img_snow_wide.jpg"}
+		];
+		var slideContainer = document.getElementById("slideshow-container");
+		for (var i = 0; i < 3; i++) {
+			var slide = document.createElement("div");
+			var img = document.createElement("img");
+			img.setAttribute("src", imgs[i].src);
+			slide.setAttribute("class", "slide");
+
+			slide.appendChild(img);
+			slideContainer.appendChild(slide);
+		}
+
+		var slideIndex = 0;
+		var slides = [...document.getElementsByClassName("slide")];
+		showSlide();
+		function showSlide() {
+			if (slideIndex > slides.length - 1) {
+				slideIndex = 0
+			}
+			slides.forEach(function(slide) {
+				slide.style.display = "none";
+			})
+			slides[slideIndex++].style.display = "block";
+			setInterval(showSlide, 2000);
+		}
+	</script>
+</body>
+</html>
