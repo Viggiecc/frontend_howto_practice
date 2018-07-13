@@ -9,15 +9,26 @@
 <body>
 	<div class="header">
 		<h1>My To Do List</h1>
-		<input type="text" placeholder="Title...">
+		<input id="todoInput" type="text" placeholder="Title...">
 		<span onclick="newElement()">Add</span>
 	</div>
+
 	<ul id="myUL">
 
 	</ul>
-	<script type="text/javascript">
+	<script>
 		var newElement = function() {
+			var myUL = document.getElementById("myUL");
 			var newToDoList = document.createElement("li");
+			var todoInput = document.getElementById("todoInput").value;
+			var todoText = document.createTextNode(todoInput);
+			if (todoInput.trim() === "") {
+				alert("Please write something here!");			
+			} else {
+				newToDoList.appendChild(todoText);
+				myUL.appendChild(newToDoList);
+			}
+			document.getElementById("todoInput").value = "";
 		}
 	</script>
 </body>
