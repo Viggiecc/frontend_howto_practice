@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style>
+	#bar-container {
+		background-color: #ddd;
+		height: 30px;
+		width: 80%;
+	}
+	#bar {
+		background-color: #4CAF50;
+		height: 30px;
+		width: 1%;
+		text-align: center;
+		line-height: 30px;
+		color: white;
+	}
+	</style>
+</head>
+<body>
+	<div id="bar-container">
+		<div id="bar"></div>
+	</div>
+	<button onclick="move()">click me</button>
+
+	<script type="text/javascript">
+	function move() {
+		var bar = document.getElementById("bar");
+		var width = 1;
+		var id = setInterval(frame, 10);
+		function frame() {
+			if (width > 100) {
+				clearInterval(id);
+			} else {
+				bar.style.width = width + "%";
+				bar.innerHTML = width + "%";
+				width++;
+			}
+		}
+	}
+		
+	</script>
+</body>
+</html>
